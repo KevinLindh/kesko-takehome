@@ -20,7 +20,7 @@ function Orders(props:any){
         }
         if (productFilter) {
             filtered = filtered.filter((item:any) =>
-            item.ProductNames.toLowerCase().includes(productFilter.toLowerCase())
+            item.ProductNames.toLowerCase().split(",").includes(productFilter.toLowerCase())
           );
         }
         setFilteredList(filtered);
@@ -41,12 +41,13 @@ function Orders(props:any){
         <div>
         <form>
           <label htmlFor="productFilter">Filter orders by product name</label>
-          <input value={productFilter} onKeyDown={handleProductFilterKeyPress} onChange={handleProductNameFilterChange}type="text" placeholder="Filter by product" id="productFilter" name="productFilter" />
+          <input className='inputFinder' value={productFilter} onKeyDown={handleProductFilterKeyPress} onChange={handleProductNameFilterChange}type="text" placeholder="Filter by product" id="productFilter" name="productFilter" />
           <label><input type="checkbox" className='checkBox' key={Math.random()} checked={shipped} onChange={toggleShipped} /> Show only shipped orders</label>
         </form>
         <p>Total amount of orders: {filteredList.length}</p>
-        {filteredList.map( (element:any) => {
+        {filteredList.map( (element:any, index:number) => {
             return <div key={element.OrderID} className="entireOrder">
+                    <span className='numbering'>#{index}</span>
                     <div className="orderDetails">
                         <p className="upperDetails">Shipping address</p>
                         { element.ShippingAddress ? 
