@@ -50,7 +50,8 @@ h1{
 
 
 .orderDetails{
-  min-width: 250px;
+  padding: 10px;
+  min-width: 330px;
   min-height: 250px;
 }
 
