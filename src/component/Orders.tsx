@@ -20,16 +20,24 @@ function Orders(props:any){
         if (shipped) {
           filtered = filtered.filter((item:any) => item.ShippedDate);
         }
-        if (productFilter) {
+        
+        if (productFilter && selectedProduct.length === 0) {
+            filtered = filtered.filter((item:any) =>
+            item.ProductNames.toLowerCase().includes(productFilter.toLowerCase()),
+            setSelectedFilter("")
+          );
+        }
+        if (selectedProduct) {
             filtered = filtered.filter((item:any) =>
             item.ProductNames.toLowerCase().split(",").includes(productFilter.toLowerCase())
           );
         }
         setFilteredList(filtered);
-      }, [props.data, shipped, selectedProduct]);
+      }, [props.data, shipped, selectedProduct, productFilter]);
 
       const handleProductNameFilterChange = (e:any) => {
         setproductFilter(e.target.value);
+        setSelectedFilter("");
       };
 
       
@@ -49,7 +57,7 @@ function Orders(props:any){
         <div>
         <section className='topInput'>
             <form>
-            <label htmlFor="productFilter">Filter orders by product name</label>
+            <label htmlFor="productFilter">Filter orders by product name (press enter or magnifying glass for only exact product)</label>
             <div id='inputWithImage'>
                 <input className='inputFinder' value={productFilter} onKeyDown={handleProductFilterKeyPress} onChange={handleProductNameFilterChange}type="text" placeholder="Filter by product" id="productFilter" name="productFilter" />
                 <img id='searchImg' src={searchIcon} alt="Search icon" onClick={filterProduct}/>
