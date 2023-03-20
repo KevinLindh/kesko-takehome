@@ -64,6 +64,11 @@ h1{
   text-align: center;
 }
 
+.numbering{
+  font-size: 3rem;
+  padding: 0 2rem 0 2rem;
+}
+
 /* FORM */
 
 form{
@@ -71,7 +76,11 @@ form{
   flex-direction: column;
   align-items: left;
   text-align: left;
-  padding: 5% 10% 3% 20%;
+}
+
+.topInput{
+  display: flex;
+  justify-content: center;
 }
 
 #inputWithImage{
@@ -79,17 +88,20 @@ form{
 }
 
 .inputFinder{
-  width: 100%;
+  min-width: 600px;
   height:3rem;
   border-radius: 15px;
   text-indent: 0.75rem;
   border: none;
   margin: 5px 0 5px -0.75rem;
-  color: #FFFFFF80;
+  color: #FFFFFF;
   font-size: 1.25rem;
   background-size: 1.5rem;
   background-color: #FFFFFF14;
   font-family: "Inter";
+}
+.inputFinder::placeholder{
+  color: #FFFFFF80;
 }
 
 #searchImg{

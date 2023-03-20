@@ -4,6 +4,7 @@ import searchIcon from "../pngegg.png";
 function Orders(props:any){
     const [filteredList, setFilteredList] = useState([])
     const [productFilter, setproductFilter] = useState('');
+    const [selectedProduct, setSelectedFilter] = useState("");
     const [shipped, setShipped] = useState(false);
   
     // Shipped toggle handler
@@ -25,7 +26,7 @@ function Orders(props:any){
           );
         }
         setFilteredList(filtered);
-      }, [props.data, shipped, productFilter]);
+      }, [props.data, shipped, selectedProduct]);
 
       const handleProductNameFilterChange = (e:any) => {
         setproductFilter(e.target.value);
@@ -35,23 +36,31 @@ function Orders(props:any){
       const handleProductFilterKeyPress = (e: any) => {
         if (e.key === 'Enter') {
           e.preventDefault(); // Prevent form submission
+          setSelectedFilter(productFilter);
         }
+      };
+
+      const filterProduct = (e: any) => {
+          e.preventDefault();
+          setSelectedFilter(productFilter);
       };
 
     return (
         <div>
-        <form>
-          <label htmlFor="productFilter">Filter orders by product name</label>
-          <div id='inputWithImage'>
-            <input className='inputFinder' value={productFilter} onKeyDown={handleProductFilterKeyPress} onChange={handleProductNameFilterChange}type="text" placeholder="Filter by product" id="productFilter" name="productFilter" />
-            <img id='searchImg' src={searchIcon} alt="Search icon"/>
-          </div>
-          <label><input type="checkbox" className='checkBox' key={Math.random()} checked={shipped} onChange={toggleShipped} /> Show only shipped orders</label>
-        </form>
-        <p>Total amount of orders: {filteredList.length}</p>
+        <section className='topInput'>
+            <form>
+            <label htmlFor="productFilter">Filter orders by product name</label>
+            <div id='inputWithImage'>
+                <input className='inputFinder' value={productFilter} onKeyDown={handleProductFilterKeyPress} onChange={handleProductNameFilterChange}type="text" placeholder="Filter by product" id="productFilter" name="productFilter" />
+                <img id='searchImg' src={searchIcon} alt="Search icon" onClick={filterProduct}/>
+            </div>
+            <label><input type="checkbox" className='checkBox' key={Math.random()} checked={shipped} onChange={toggleShipped} /> Show only shipped orders</label>
+            </form>
+        </section>
+        <span>Results: {filteredList.length}</span>
         {filteredList.map( (element:any, index:number) => {
             return <div key={element.OrderID} className="entireOrder">
-                    <span className='numbering'>#{index}</span>
+                    <span className='numbering'>#{index+1}</span>
                     <div className="orderDetails">
                         <p className="upperDetails">Shipping address</p>
                         { element.ShippingAddress ? 
