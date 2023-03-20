@@ -74,6 +74,10 @@ form{
   padding: 5% 10% 3% 20%;
 }
 
+#inputWithImage{
+  position: relative;
+}
+
 .inputFinder{
   width: 100%;
   height:3rem;
@@ -83,8 +87,15 @@ form{
   margin: 5px 0 5px -0.75rem;
   color: #FFFFFF80;
   font-size: 1.25rem;
-  background: url(../public/pngegg.png) no-repeat 97%;
   background-size: 1.5rem;
   background-color: #FFFFFF14;
   font-family: "Inter";
+}
+
+#searchImg{
+  position: absolute;
+  top: 0.75rem;
+  margin-left: -3rem;
+  cursor: pointer;
+  height: 2rem;
 }
