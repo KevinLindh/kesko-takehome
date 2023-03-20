@@ -50,7 +50,7 @@ function Orders(props:any){
                     <div className="orderDetails">
                         <p className="upperDetails">Shipping address</p>
                         { element.ShippingAddress ? 
-                            element.ShippingAddress.split("; ").map((shipping:string) =>
+                            element.ShippingAddress.split(";-;").map((shipping:string) =>
                             <p className="lowerDetails">{shipping}</p>
                             ) : <p className="lowerDetails">No Address</p>
                         }
