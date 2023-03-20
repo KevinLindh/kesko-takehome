@@ -14,22 +14,37 @@ function Orders(props:any){
     };
 
     useEffect(() => {
+        let filtered = props.data;
         if (shipped) {
-          setFilteredList(props.data.filter((item:any) => item.ShippedDate));
-        } else {
-          setFilteredList(props.data);
+          filtered = filtered.filter((item:any) => item.ShippedDate);
         }
-      }, [props.data, shipped]);
+        if (productFilter) {
+            filtered = filtered.filter((item:any) =>
+            item.ProductNames.toLowerCase().includes(productFilter.toLowerCase())
+          );
+        }
+        setFilteredList(filtered);
+      }, [props.data, shipped, productFilter]);
+
+      const handleProductNameFilterChange = (e:any) => {
+        setproductFilter(e.target.value);
+      };
+
+      
+      const handleProductFilterKeyPress = (e: any) => {
+        if (e.key === 'Enter') {
+          e.preventDefault(); // Prevent form submission
+        }
+      };
 
     return (
         <div>
         <form>
           <label htmlFor="productFilter">Filter orders by product name</label>
-          <input value={productFilter} onChange={(e) => setproductFilter(e.target.value)}type="text" placeholder="Filter by product" id="productFilter" name="productFilter" />
+          <input value={productFilter} onKeyDown={handleProductFilterKeyPress} onChange={handleProductNameFilterChange}type="text" placeholder="Filter by product" id="productFilter" name="productFilter" />
           <label><input type="checkbox" className='checkBox' key={Math.random()} checked={shipped} onChange={toggleShipped} /> Show only shipped orders</label>
         </form>
-        <p>{shipped.toString()}</p>
-        <p>{filteredList.length}</p>
+        <p>Total amount of orders: {filteredList.length}</p>
         {filteredList.map( (element:any) => {
             return <div key={element.OrderID} className="entireOrder">
                     <div className="orderDetails">
@@ -47,7 +62,7 @@ function Orders(props:any){
                     </div>
                     <div className="orderDetails">
                         <p className="upperDetails">Products</p>
-                        { element.ProductNames.split(",").length <= 5 ?
+                        { element.ProductNames.split(",").length <= 4 ?
                             element.ProductNames.split(",").map((prods:string) => 
                             <p className="lowerDetails">{prods}</p>
                             )
@@ -61,7 +76,6 @@ function Orders(props:any){
                         </div>
                         }
                     </div>
-                    <p>{element.ShippedDate}</p>
                     <a href='' className="viewDetailsBtn">View Details</a>
                 </div>
         })
