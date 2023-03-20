@@ -1,9 +1,36 @@
-import React from "react"
+import React, { useEffect, useState } from 'react'
 
 function Orders(props:any){
+    const [filteredList, setFilteredList] = useState([])
+    const [productFilter, setproductFilter] = useState('');
+    const [shipped, setShipped] = useState(false);
+  
+    // Shipped toggle handler
+    const toggleShipped = (e:any) => {
+      e.preventDefault()
+      // When the handler is invoked
+      // inverse the boolean state of shipped
+      setShipped(!shipped);
+    };
+
+    useEffect(() => {
+        if (shipped) {
+          setFilteredList(props.data.filter((item:any) => item.ShippedDate));
+        } else {
+          setFilteredList(props.data);
+        }
+      }, [props.data, shipped]);
+
     return (
         <div>
-        {props.data.map( (element:any) => {
+        <form>
+          <label htmlFor="productFilter">Filter orders by product name</label>
+          <input value={productFilter} onChange={(e) => setproductFilter(e.target.value)}type="text" placeholder="Filter by product" id="productFilter" name="productFilter" />
+          <label><input type="checkbox" className='checkBox' key={Math.random()} checked={shipped} onChange={toggleShipped} /> Show only shipped orders</label>
+        </form>
+        <p>{shipped.toString()}</p>
+        <p>{filteredList.length}</p>
+        {filteredList.map( (element:any) => {
             return <div key={element.OrderID} className="entireOrder">
                     <div className="orderDetails">
                         <p className="upperDetails">Shipping address</p>

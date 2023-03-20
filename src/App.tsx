@@ -15,16 +15,10 @@ function App() {
 
   return (
    <div>
+    <section>
     <div className='App'>
       <h1>NORTHWIND</h1>
     </div>
-      <section>
-        <span>Filter orders by product name</span>
-        <input />
-        <div>
-          <input type="checkbox" className='checkBox'/>
-          <label> Show only shipped orders</label>
-        </div>
       </section>
     <section className='allOrders'>
       <Orders data={dataSQL}></Orders>
