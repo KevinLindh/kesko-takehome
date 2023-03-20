@@ -44,3 +44,18 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+# Why things are the way they are
+
+## Search
+
+In search I chose to require a full product name when filtering.
+
+This requires more concentration from the user to be able to see that spelling is correct. 
+This solves the problem of selecting similar foods such as "Tofu" and "Longlife Tofu"
+
+## Seeing results
+
+I added a way of visualizing the amount of results you have currently.
+Ideally I would add some transition to showcase loading but for a smaller sample set this is quite clear.
