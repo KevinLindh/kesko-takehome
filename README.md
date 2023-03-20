@@ -50,10 +50,12 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## Search
 
-In search I chose to require a full product name when filtering.
+Because the prompt required filter as user types I implemented this.
+
+In search I chose to also give the ability to filter by exact match of product in the order.
 
 This requires more concentration from the user to be able to see that spelling is correct. 
-This solves the problem of selecting similar foods such as "Tofu" and "Longlife Tofu"
+But solves the problem of selecting similar foods such as "Tofu" and "Longlife Tofu" when you only want exact matches. 
 
 ## Seeing results
 
