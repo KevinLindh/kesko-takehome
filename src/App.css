@@ -1,4 +1,7 @@
-.App {
+body {
+  background-color: #012b39;
+  font-family: "Inter";
+  color:#FFFFFF;
   text-align: center;
 }
 
@@ -21,18 +24,51 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+h1{
+  display: flex;
+  align-items: left;
+  padding-left: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.checkBox{
+  accent-color: #B54139;
+}
+
+.allOrders{
+  display: flex;
+  justify-content: center;
+}
+
+.entireOrder{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.orderDetails{
+  width: 30%;
+  min-height: 250px;
+}
+
+.upperDetails{
+  color: #B54139;
+  text-align: left;
+}
+
+.lowerDetails{
+  text-align: left;
+}
+
+.viewDetailsBtn{
+  color:#FFFFFF;
+  padding: 14px 45px;
+  text-decoration: none;
+  background-color: #B54139;
+  border-radius: 50px;
+  white-space: nowrap;
+  text-align: center;
 }
