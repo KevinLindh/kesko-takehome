@@ -76,7 +76,7 @@ function Orders(props:any){
                         </div>
                         }
                     </div>
-                    <a href='' className="viewDetailsBtn">View Details</a>
+                    <a href={`/order/${element.OrderID}`} className="viewDetailsBtn">View Details</a>
                 </div>
         })
         }
