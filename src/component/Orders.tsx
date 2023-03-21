@@ -13,7 +13,7 @@ function Orders(props:any){
       e.preventDefault()
       // When the handler is invoked
       // inverse the boolean state of shipped
-      setShipped(!shipped);
+      setShipped((shipped:boolean)=> !shipped);
     };
 
     useEffect(() => {
@@ -63,13 +63,12 @@ function Orders(props:any){
                 <input className='inputFinder' value={productFilter} onKeyDown={handleProductFilterKeyPress} onChange={handleProductNameFilterChange}type="text" placeholder="Filter by product" id="productFilter" name="productFilter" />
                 <img id='searchImg' src={searchIcon} alt="Search icon" onClick={filterProduct}/>
             </div>
-            <label><input type="checkbox" className='checkBox' key={Math.random()} checked={shipped} onChange={toggleShipped} /> Show only shipped orders</label>
+            <label htmlFor="toggleShipped"><input id="toggleShipped" type="checkbox" className='checkBox' key={Math.random()} checked={shipped} onChange={toggleShipped} /> Show only shipped orders</label>
             </form>
         </section>
         <span>Results: {filteredList.length}</span>
         {filteredList.map( (element:any, index:number) => {
             return <div key={element.OrderID} className="entireOrder">
-              <p>{element.ShippedDate}</p>
                     <span className='numbering'>#{index+1}</span>
                     <div className="orderDetails">
                         <p className="upperDetails">Shipping address</p>
