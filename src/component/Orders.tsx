@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import searchIcon from "../pngegg.png";
+import { dateChecker } from '../utils/utils';
 
 function Orders(props:any){
     const [filteredList, setFilteredList] = useState([])
@@ -18,7 +19,7 @@ function Orders(props:any){
     useEffect(() => {
         let filtered = props.data;
         if (shipped) {
-          filtered = filtered.filter((item:any) => item.ShippedDate);
+          filtered = filtered.filter((item:any) => dateChecker(item.ShippedDate));
         }
         
         if (productFilter && selectedProduct.length === 0) {
@@ -68,6 +69,7 @@ function Orders(props:any){
         <span>Results: {filteredList.length}</span>
         {filteredList.map( (element:any, index:number) => {
             return <div key={element.OrderID} className="entireOrder">
+              <p>{element.ShippedDate}</p>
                     <span className='numbering'>#{index+1}</span>
                     <div className="orderDetails">
                         <p className="upperDetails">Shipping address</p>

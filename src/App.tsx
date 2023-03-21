@@ -6,7 +6,7 @@ function App() {
   const [dataSQL, setDataSQL] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:5000/')
+    fetch('https://kesko-backend.onrender.com/')
       .then((response) => response.json())
       .then((data) => {
         setDataSQL(data)
