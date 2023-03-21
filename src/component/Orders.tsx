@@ -66,7 +66,7 @@ function Orders(props:any){
             <label htmlFor="toggleShipped"><input id="toggleShipped" type="checkbox" className='checkBox' key={Math.random()} checked={shipped} onChange={toggleShipped} /> Show only shipped orders</label>
             </form>
         </section>
-        <span>Results: {filteredList.length}</span>
+        <span className='resultsFound'>Results: {filteredList.length}</span>
         {filteredList.map( (element:any, index:number) => {
             return <div key={element.OrderID} className="entireOrder">
                     <span className='numbering'>#{index+1}</span>
