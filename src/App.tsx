@@ -6,12 +6,18 @@ function App() {
   const [dataSQL, setDataSQL] = useState([])
 
   useEffect(() => {
-    fetch('https://kesko-backend.onrender.com/')
-      .then((response) => response.json())
-      .then((data) => {
-        setDataSQL(data)
-      })
-  }, [])
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://kesko-backend.onrender.com/');
+        const data = await response.json();
+        setDataSQL(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
    <div>
