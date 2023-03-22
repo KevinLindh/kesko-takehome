@@ -53,6 +53,23 @@ function Orders(props:any){
           setSelectedFilter(productFilter);
       };
 
+      let moreThanFour = (inputArray: Array <string>) => {
+        return(
+        <>
+          {inputArray.slice(0, 3).map((prods:string) => 
+        <p className="lowerDetails">{prods}</p>
+        )}
+         <p className="lowerDetails">+{inputArray.length - 3} more...</p>
+        </>
+        )
+      };
+
+      let lessThanFive = (inputArray: Array <string>) => {
+        return(inputArray.map((prods:string) => 
+          <p className="lowerDetails">{prods}</p>
+        ))
+      }
+
     return (
         <div>
         <section className='topInput'>
@@ -85,17 +102,9 @@ function Orders(props:any){
                     <div className="orderDetails">
                         <p className="upperDetails">Products</p>
                         { element.ProductNames.split(",").length <= 4 ?
-                            element.ProductNames.split(",").map((prods:string) => 
-                            <p className="lowerDetails">{prods}</p>
-                            )
+                        <>{lessThanFive(element.ProductNames.split(","))} </>
                         :
-                        <div>
-                            {element.ProductNames.split(",").slice(0, 3).map((prods:string) => 
-                                <p className="lowerDetails">{prods}</p>
-                                )
-                            }
-                            <p className="lowerDetails">+{element.ProductNames.split(",").length - 3} more...</p>
-                        </div>
+                        <>{moreThanFour(element.ProductNames.split(","))}</>
                         }
                     </div>
                     <a href={`/order/${element.OrderID}`} className="viewDetailsBtn">View Details</a>
