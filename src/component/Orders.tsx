@@ -54,21 +54,23 @@ function Orders(props:any){
       };
 
       let moreThanFour = (inputArray: Array <string>) => {
-        return(
-        <>
-          {inputArray.slice(0, 3).map((prods:string) => 
-        <p className="lowerDetails">{prods}</p>
-        )}
-         <p className="lowerDetails">+ {inputArray.length - 3} more...</p>
-        </>
-        )
+        return (
+          <>
+            {inputArray.slice(0, 3).map((prods:string, index:number) => 
+              <p key={`moreThanFour-${index}`} className="lowerDetails">{prods}</p>
+            )}
+            <p className="lowerDetails" key={`moreThanFour-more`}>+ {inputArray.length - 3} more...</p>
+          </>
+        );
       };
-
+      
       let lessThanFive = (inputArray: Array <string>) => {
-        return(inputArray.map((prods:string) => 
-          <p className="lowerDetails">{prods}</p>
-        ))
-      }
+        return (
+          inputArray.map((prods:string, index:number) => 
+            <p key={`lessThanFive-${index}`} className="lowerDetails">{prods}</p>
+          )
+        );
+      };
 
     return (
         <div>
@@ -86,26 +88,26 @@ function Orders(props:any){
         {filteredList.map( (element:any, index:number) => {
             return <div key={element.OrderID} className="entireOrder">
                     <span className='numbering'>#{index+1}</span>
-                    <div className="orderDetails">
+                    <div key={`${element.OrderID}Shipping`} className="orderDetails">
                         <p className="upperDetails">Shipping address</p>
                         { element.ShippingAddress ? 
-                            element.ShippingAddress.split(";-;").map((shipping:string) =>
-                            <p className="lowerDetails">{shipping}</p>
+                            element.ShippingAddress.split(";-;").map((shipping:string, index:number) =>
+                            <p className="lowerDetails" key={`${element.OrderID}ShippingAddress${index}`}>{shipping}</p>
                             ) : <p className="lowerDetails">No Address</p>
                         }
                         <p className="lowerDetails">{element.ShipAddress}</p>
                     </div>
-                    <div className="orderDetails">
+                    <div className="orderDetails" key={`${element.OrderID}Customer`} >
                         <p className="upperDetails">Customer name</p>
                         <p className="lowerDetails">{element.ContactName}</p>
                     </div>
-                    <div className="orderDetails">
-                        <p className="upperDetails">Products</p>
-                        { element.ProductNames.split(",").length <= 4 ?
+                    <div className="orderDetails" key={`${element.OrderID}Products`} >
+                      <p className="upperDetails">Products</p>
+                      { element.ProductNames.split(",").length <= 4 ?
                         <>{lessThanFive(element.ProductNames.split(","))} </>
                         :
                         <>{moreThanFour(element.ProductNames.split(","))}</>
-                        }
+                      }
                     </div>
                     <a href={`/order/${element.OrderID}`} className="viewDetailsBtn">View Details</a>
                 </div>
