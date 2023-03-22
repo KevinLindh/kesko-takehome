@@ -42,14 +42,13 @@ function Orders(props:any){
       };
 
       
-      const handleProductFilterKeyPress = (e: any) => {
+      const handleProductFilterKeyPress = (e:any) => {
         if (e.key === 'Enter') {
           e.preventDefault(); // Prevent form submission
-          setSelectedFilter(productFilter);
         }
       };
 
-      const filterProduct = (e: any) => {
+      const filterProduct = (e:any) => {
           e.preventDefault();
           setSelectedFilter(productFilter);
       };
@@ -58,7 +57,7 @@ function Orders(props:any){
         <div>
         <section className='topInput'>
             <form>
-            <label htmlFor="productFilter">Filter orders by product name (press enter or magnifying glass for only exact product)</label>
+            <label htmlFor="productFilter" id='productFilter'>Filter orders by product name (press magnifying glass for only exact product)</label>
             <div id='inputWithImage'>
                 <input className='inputFinder' value={productFilter} onKeyDown={handleProductFilterKeyPress} onChange={handleProductNameFilterChange}type="text" placeholder="Filter by product" id="productFilter" name="productFilter" />
                 <img id='searchImg' src={searchIcon} alt="Search icon" onClick={filterProduct}/>
