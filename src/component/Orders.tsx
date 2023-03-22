@@ -59,7 +59,7 @@ function Orders(props:any){
           {inputArray.slice(0, 3).map((prods:string) => 
         <p className="lowerDetails">{prods}</p>
         )}
-         <p className="lowerDetails">+{inputArray.length - 3} more...</p>
+         <p className="lowerDetails">+ {inputArray.length - 3} more...</p>
         </>
         )
       };
