@@ -31,7 +31,7 @@ The backend is hosted on the render.com through the free tier which may cause bi
 
 This is my solution for the kesko takehome. 
 <a href="https://capable-buttercream-39f592.netlify.app/">
-![keskogif](https://user-images.githubusercontent.com/94518833/227053590-8c9e6d57-1122-45f6-b0fb-bed6af318a86.gif)
+![keskonewgif](https://user-images.githubusercontent.com/94518833/227059957-f31844ff-ba2d-403c-b84d-93a47b5ed89d.gif)
 </a>
 
 
