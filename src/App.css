@@ -1,100 +1,104 @@
+/* Global Styles */
+
 body {
   background-color: #012B37;
   font-family: "Inter";
-  color:#FFFFFF;
+  color: #FFFFFF;
   text-align: center;
 }
 
-h1{
+h1 {
   display: flex;
   align-items: left;
   padding-left: 1rem;
   font-size: 2.25rem;
 }
 
-.checkBox{
+.checkBox {
   accent-color: #B54139;
 }
 
-.allOrders{
+/* Orders */
+
+.allOrders {
   display: flex;
   justify-content: center;
 }
 
-.entireOrder{
+.entireOrder {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-
-.orderDetails{
-  padding: 10px;
-  min-width: 330px;
-  min-height: 250px;
+.orderDetails {
+  padding: 1rem;
+  min-width: 20rem;
+  min-height: 15rem;
 }
 
-.upperDetails{
+.upperDetails {
   color: #B54139;
   text-align: left;
 }
 
-.lowerDetails{
+.lowerDetails {
   text-align: left;
 }
 
-.viewDetailsBtn{
-  color:#FFFFFF;
-  padding: 14px 45px;
+.viewDetailsBtn {
+  color: #FFFFFF;
+  padding: 1rem 2.5rem;
   text-decoration: none;
   background-color: #B54139;
-  border-radius: 50px;
+  border-radius: 3rem;
   white-space: nowrap;
   text-align: center;
 }
 
-.numbering{
+.numbering {
   font-size: 3rem;
   padding: 0 2rem 0 2rem;
 }
 
-/* FORM */
+/* Form */
 
-form{
+form {
   display: flex;
   flex-direction: column;
   align-items: left;
   text-align: left;
 }
 
-.topInput{
+.topInput {
   display: flex;
   justify-content: center;
 }
 
-#inputWithImage{
+#inputWithImage {
   position: relative;
 }
 
-.inputFinder{
-  min-width: 600px;
-  height:3rem;
-  border-radius: 15px;
+.inputFinder {
+  min-width: 37.5rem;
+  height: 3rem;
+  border-radius: 2.25rem;
   text-indent: 0.75rem;
   border: none;
-  margin: 5px 0 5px -0.75rem;
+  margin: 0.3125rem 0 0.3125rem -0.75rem;
   color: #FFFFFF;
   font-size: 1.25rem;
   background-size: 1.5rem;
   background-color: #FFFFFF14;
   font-family: "Inter";
 }
-.inputFinder::placeholder{
+
+.inputFinder::placeholder {
   color: #FFFFFF80;
 }
 
-#searchImg{
+#searchImg {
   position: absolute;
   top: 0.75rem;
   margin-left: -3rem;
@@ -102,83 +106,86 @@ form{
   height: 2rem;
 }
 
-@media only screen and (max-width: 1600px){
-  .orderDetails{
-    min-width: 250px;
-    min-height: 200px;
+@media only screen and (max-width: 1600px) {
+  .orderDetails {
+    min-width: 15.625em;
+    min-height: 12.5em;
   }
 }
 
-@media only screen and (max-width: 1200px){
-  .orderDetails{
-    min-width: 200px;
-    min-height: 200px;
+@media only screen and (max-width: 1200px) {
+  .orderDetails {
+    min-width: 12.5em;
+    min-height: 12.5em;
   }
 
-  .viewDetailsBtn{
-    padding: 12px 40px;
+  .viewDetailsBtn {
+    padding: 0.75rem 2.5rem;
   }
 }
 
-@media only screen and (max-width: 1000px){
-  .orderDetails{
-    min-width: 140px;
-    min-height: 200px;
+@media only screen and (max-width: 1000px) {
+  .orderDetails {
+    min-width: 7.8125em;
+    min-height: 12.5em;
   }
 
-  .viewDetailsBtn{
-    padding: 12px 40px;
+  .viewDetailsBtn {
+    padding: 0.75rem 2.5rem;
   }
 }
 
-@media only screen and (max-width: 800px){
-  .inputFinder{
-    min-width: 500px;
-    margin: 5px 0 5px -0.75rem;
+@media only screen and (max-width: 800px) {
+  .inputFinder {
+    min-width: 27em;
+    margin: 0.3125rem 0 0.3125rem -0.75rem;
   }
-  form{
+
+  form {
     align-items: center;
   }
 
-  .entireOrder{
+  .entireOrder {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 2px solid grey;
-    padding: 3rem;
-    margin: 0.5rem;
+    border: 0.125em solid grey;
+    padding: 1.5rem;
+    margin: 0.3125rem;
   }
 
-  .orderDetails{
-    min-width: 200px;
-    min-height: 10px;
-  }
-  .viewDetailsBtn{
-    margin: 1rem;
-    padding: 15px 45px;
+  .orderDetails {
+    min-width: 12.5rem;
+    min-height: 0.625rem;
   }
 
-  .upperDetails{
+  .viewDetailsBtn {
+    margin: 0.0625rem;
+    padding: 0.9375rem 2.8125rem;
+  }
+
+  .upperDetails {
     text-align: center;
   }
-  
-  .lowerDetails{
+
+  .lowerDetails {
     display: flex;
     justify-content: center;
   }
 
-  .numbering{
+  .numbering {
     font-size: 2rem;
     padding: 0 1rem 0 1rem;
   }
 }
 
-@media only screen and (max-width: 600px){
-  .inputFinder{
-    min-width: 400px;
+@media only screen and (max-width: 600px) {
+  .inputFinder {
+    min-width: 17em;
   }
-  #productFilter{
+
+  #productFilter {
     text-align: center;
   }
 }
