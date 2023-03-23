@@ -48,6 +48,13 @@ reasonable degree, does not have to be pixel perfect) with a responsive layout
 render.com
 
 
+## Functionalities
+
+* The user is able to see all the orders which were provided from the <a href="https://github.com/jpwhite3/northwind-SQLite3">Northwind SQLite database</a>
+* The user can filter results by writing the product they wish is in the customers order.
+* There is also an ability to further filter by clicking the checkbox to only show shipped orders.
+* For only precise match of product name in order, the user can click the magnifying glass (right side of the input field).
+
 ### Demo Available here : <a href="https://capable-buttercream-39f592.netlify.app/">Live Demo Here!</a>
 
 
